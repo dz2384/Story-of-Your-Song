@@ -80,6 +80,7 @@
       document.getElementById('song-link').value = '';
       document.getElementById('song-name').value = '';
 
+      this.update();
     }
 
     this.on('update', () => {
