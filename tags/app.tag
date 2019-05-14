@@ -24,18 +24,20 @@
 				<div show={menuState==='dashboard'}>
 					<!-- Left side profile section -->
 					<div>
-						<span if={ user } class="navbar-text mr-3">{ user.displayName }</span>
+						<span if={ user } style="font-size:x-large" class="navbar-text mr-3">{ user.displayName }</span>
 					</div>
+					<br>
 					<!-- left side section -->
 					<div>
 						<div>
-							<button type="button" value='home' onclick={ toggleHome }>Browse</button>
+							<button type="button" class="btn btn-info" value='home' onclick={ toggleHome }>Browse</button>
 						</div>
+						<br>
 						<div>
 							<!-- <button type="button" onclick={ toggleBrowse }>Browse</button> -->
 						</div>
 						<div>
-							<button type="button" onclick={ toggleMyStories }>Home</button>
+							<button type="button" class="btn btn-info" onclick={ toggleMyStories }>Home</button>
 						</div>
 						<div>
 							<!-- <button type="button" onclick={ toggleLikedStories }>Liked stories</button> -->
@@ -46,6 +48,7 @@
 			</div>
 			<!-- Right side section -->
 			<div class="col-11">
+				<br>
 				<div show={subMenuState==='Home'}>
 					<home></home>
 				</div>

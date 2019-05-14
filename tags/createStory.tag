@@ -1,9 +1,11 @@
-<createStory>
+<createstory>
 
   <!-- Button trigger modal -->
+  <br>
   <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#exampleModal">
     Create
   </button>
+  <br>
 
   <!-- Modal -->
   <div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
@@ -30,12 +32,12 @@
               <button type="button" class="btn btn-light dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                 Select a Catogory
               </button>
-              <div class="dropdown-menu" id = "storyType">
-                <a class="dropdown-item" onclick={loveType} id = "love" value="love" href="#">Love</a>
-                <a class="dropdown-item" onclick={griefType} id = "grief" href="#">Grief</a>
-                <a class="dropdown-item" onclick={familyType} id = "family" href="#">Family</a>
-                <a class="dropdown-item" onclick={adversityType} id = "adversity" href="#">Adversity</a>
-                <a class="dropdown-item" onclick={memoryType} id = "memory" href="#">Memories</a>
+              <div class="dropdown-menu" id="storyType">
+                <a class="dropdown-item" onclick={loveType} id="love" value="love" href="#">Love</a>
+                <a class="dropdown-item" onclick={griefType} id="grief" href="#">Grief</a>
+                <a class="dropdown-item" onclick={familyType} id="family" href="#">Family</a>
+                <a class="dropdown-item" onclick={adversityType} id="adversity" href="#">Adversity</a>
+                <a class="dropdown-item" onclick={memoryType} id="memory" href="#">Memories</a>
               </div>
             </div>
           </form>
@@ -69,10 +71,24 @@
         let myStoryId = myStoryDocRef.id;
 
         // DATABASE WRITE - write to collection stories
-        collectionRef.doc(id).set({songName: songName, YouTubeID: videoId, message: storyText, id: id, timestamp: firebase.firestore.FieldValue.serverTimestamp(), type:storyType});
+        collectionRef.doc(id).set({
+          songName: songName,
+          YouTubeID: videoId,
+          message: storyText,
+          id: id,
+          timestamp: firebase.firestore.FieldValue.serverTimestamp(),
+          type: storyType
+        });
 
         // DATABASE WRITE - write to my stories
-        myStoryRef.doc(myStoryId).set({songName: songName, YouTubeID: videoId, message: storyText, id: id, timestamp: firebase.firestore.FieldValue.serverTimestamp(), type:storyType});
+        myStoryRef.doc(myStoryId).set({
+          songName: songName,
+          YouTubeID: videoId,
+          message: storyText,
+          id: id,
+          timestamp: firebase.firestore.FieldValue.serverTimestamp(),
+          type: storyType
+        });
 
       }
       event.preventDefault();
@@ -118,12 +134,12 @@
     }
 
     //Get the YouTube ID from the link people post.
-    function youtube_parser(url){
-    var regExp = /^.*((youtu.be\/)|(v\/)|(\/u\/\w\/)|(embed\/)|(watch\?))\??v?=?([^#\&\?]*).*/;
-    var match = url.match(regExp);
-    return (match&&match[7].length==11)? match[7] : false;
-}
-
-
+    function youtube_parser(url) {
+      var regExp = /^.*((youtu.be\/)|(v\/)|(\/u\/\w\/)|(embed\/)|(watch\?))\??v?=?([^#\&\?]*).*/;
+      var match = url.match(regExp);
+      return (match && match[7].length == 11)
+        ? match[7]
+        : false;
+    }
   </script>
-</createStory>
+</createstory>
